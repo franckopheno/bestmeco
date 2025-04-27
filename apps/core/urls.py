@@ -10,6 +10,8 @@ urlpatterns = [
     path('cartuser', views.cartuser, name='cartuser'),
     
     path('products', views.products_view, name='products'),
+    # path pour les details d'un produit avec le slug dans l'url
+    path('products/<slug:slug>/', views.product_detail, name='product_detail'),
     
     # Pages de contact
     path('contact/', views.contact, name='contact'),

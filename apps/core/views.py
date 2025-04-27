@@ -10,6 +10,7 @@ from apps.catalog.models import Product  # Assure-toi que le modèle Product est
 def home(request):
     """Vue pour la page d'accueil"""
     return render(request, 'index.html')
+
 # route pour voir le contenus du panier
 def cartuser(request):
     """Vue pour la page du panier"""
@@ -113,3 +114,11 @@ def products_view(request):
     if products.exists():
         similar = similar_products(products.first().id, 4)
     return render(request, 'products.html', {'products': products, 'similar_products': similar})
+
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    # Tu peux aussi ajouter des produits similaires ici si tu veux
+    similar = similar_products(product.id, 4)
+    return render(request, 'product-infos.html', {'product': product, 'similar_products': similar})
+
+
