@@ -9,6 +9,8 @@ urlpatterns = [
     
     path('cartuser', views.cartuser, name='cartuser'),
     
+    path('products', views.products_view, name='products'),
+    
     # Pages de contact
     path('contact/', views.contact, name='contact'),
     path('contact/success/', views.contact_success, name='contact_success'),

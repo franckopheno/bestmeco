@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="py-12 md:py-24 bg-black">
+    <div class="container mx-auto px-4">
+        <div class="max-w-sm md:max-w-xl mx-auto lg:max-w-none">
+            <div class="mb-16">
+                <span class="inline-block font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-green-300 to-blue-500">Trending</span>
+                <h1 class="font-heading text-4xl text-white font-bold mt-6 mb-2">The best of the best</h1>
+                <p class="text-sm text-gray-400">Les meilleures produits de meco.</p>
+            </div>
+            <div class="flex flex-wrap -mb-8 -mx-4 xl:-mx-8">
+                {% for product in products %}
+                <div class="w-full md:w-1/2 lg:w-1/4 mb-8 px-4 xl:px-8">
+                    <a class="group block" href="#">
+                       {% load static %}
+                        <img class="block mb-5 h-88 w-full object-cover transition-transform duration-500 transform group-hover:scale-102" src="{{ product.main_image.url }}" alt="{{ product.name }}">
+                        <span class="inline-block text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-green-300 to-blue-500">FCFA {{ product.price }}</span>
+                        <h6 class="font-bold text-sm text-white mt-2">{{ product.name }}</h6>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            <h2 class="text-white mt-8">Produits similaires</h2>
+            <div class="flex flex-wrap -mb-8 -mx-4 xl:-mx-8">
+                {% for product in similar_products %}
+                <div class="w-full md:w-1/2 lg:w-1/4 mb-8 px-4 xl:px-8">
+                    <a class="group block" href="#">
+                       {% load static %}
+                        <img class="block mb-5 h-88 w-full object-cover transition-transform duration-500 transform group-hover:scale-102" src="{{ product.main_image.url }}" alt="{{ product.name }}">
+                        <span class="inline-block text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-green-300 to-blue-500">FCFA {{ product.price }}</span>
+                        <h6 class="font-bold text-sm text-white mt-2">{{ product.name }}</h6>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
