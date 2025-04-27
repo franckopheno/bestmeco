@@ -1,0 +1,1004 @@
+{% extends "base.html" %}
+
+{% block content %}
+   
+<section
+class="relative overflow-hidden py-12"
+x-data="{ slideWidth: 0, activeSlide: 0, slideCount: 3 }"
+>
+<div class="flex justify-center relative mb-14">
+  <div class="hidden xl:block flex-shrink-0">
+    <div class="rounded-xl pt-24 pb-20 h-full relative">
+      {% load static %}
+      <img
+        class="absolute right-0 top-0 w-full h-full object-cover rounded-xl"
+        src="{% static '/meco-assets/images/shoe-right-full.png' %}"
+        alt=""
+      />
+      <div
+        class="max-w-xl relative z-10 flex flex-col items-start px-8 lg:px-24"
+      >
+        <div
+          class="px-4 py-1 rounded-full bg-white uppercase text-rhino-700 text-xs font-bold tracking-widest font-heading mb-7"
+        >
+          Sale
+        </div>
+        <h1 class="text-white font-semibold text-4xl mb-4">
+          Take care of your performance every day.
+        </h1>
+        <p class="text-rhino-300 text-sm mb-6">
+          Build a well-presented brand that everyone will love.
+        </p>
+        <h2 class="text-white font-heading text-4xl font-semibold mb-6">
+          $235.95
+        </h2>
+        <a
+          class="py-3 px-4 bg-purple-500 rounded-sm text-center text-white text-sm font-medium hover:bg-purple-600 transition duration-200"
+          href="#"
+          >Go to Collection</a
+        >
+      </div>
+    </div>
+  </div>
+  <div
+    class="xl:flex-shrink-0 w-full max-w-6xl px-4 md:px-12 xl:px-4 xl:mx-24 relative"
+  >
+    <div class="sm:hidden absolute -bottom-8 left-0 -mb-6 w-full">
+      <div class="flex w-full justify-center">
+        <button
+          x-on:click.prevent="activeSlide &gt; 0 ? (activeSlide -= 1, slideWidth -= $refs['slide' + (activeSlide + 1)].offsetWidth) : null"
+          class="group inline-block mr-4"
+        >
+          <div
+            class="h-12 w-12 flex items-center justify-center bg-white rounded-full group-hover:bg-purple-500 transition duration-200"
+          >
+            <div
+              class="text-rhino-500 group-hover:text-white transition duration-200"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewbox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M8.5002 12.8L14.2002 18.4C14.6002 18.8 15.2002 18.8 15.6002 18.4C16.0002 18 16.0002 17.4 15.6002 17L10.7002 12L15.6002 7C16.0002 6.6 16.0002 6 15.6002 5.6C15.4002 5.4 15.2002 5.3 14.9002 5.3C14.6002 5.3 14.4002 5.4 14.2002 5.6L8.5002 11.2C8.1002 11.7 8.1002 12.3 8.5002 12.8C8.5002 12.7 8.5002 12.7 8.5002 12.8Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </button>
+        <button
+          x-on:click.prevent="activeSlide &lt; slideCount - 1 ? (activeSlide += 1, slideWidth += $refs['slide' + activeSlide].offsetWidth) : activeSlide = slideCount - 1"
+          class="group inline-block"
+        >
+          <div
+            class="w-12 h-12 flex items-center justify-center bg-white rounded-full group-hover:bg-purple-500 transition duration-200"
+          >
+            <div
+              class="text-rhino-500 group-hover:text-white transition duration-200"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewbox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M15.5397 11.29L9.87974 5.64C9.78677 5.54627 9.67617 5.47188 9.55431 5.42111C9.43246 5.37034 9.30175 5.3442 9.16974 5.3442C9.03773 5.3442 8.90702 5.37034 8.78516 5.42111C8.6633 5.47188 8.5527 5.54627 8.45974 5.64C8.27349 5.82736 8.16895 6.08081 8.16895 6.345C8.16895 6.60918 8.27349 6.86264 8.45974 7.05L13.4097 12.05L8.45974 17C8.27349 17.1874 8.16895 17.4408 8.16895 17.705C8.16895 17.9692 8.27349 18.2226 8.45974 18.41C8.55235 18.5045 8.6628 18.5797 8.78467 18.6312C8.90655 18.6826 9.03743 18.7094 9.16974 18.71C9.30204 18.7094 9.43293 18.6826 9.5548 18.6312C9.67668 18.5797 9.78712 18.5045 9.87974 18.41L15.5397 12.76C15.6412 12.6664 15.7223 12.5527 15.7777 12.4262C15.8331 12.2997 15.8617 12.1631 15.8617 12.025C15.8617 11.8869 15.8331 11.7503 15.7777 11.6238C15.7223 11.4973 15.6412 11.3836 15.5397 11.29Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
+    <button
+      x-on:click.prevent="activeSlide &gt; 0 ? (activeSlide -= 1, slideWidth -= $refs['slide' + (activeSlide + 1)].offsetWidth) : null"
+      class="hidden sm:block group z-50 absolute -left-7 top-1/2 transform -translate-y-1/2"
+    >
+      <div
+        class="h-16 w-16 flex items-center justify-center bg-white rounded-full group-hover:bg-purple-500 transition duration-200"
+      >
+        <div
+          class="text-rhino-500 group-hover:text-white transition duration-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewbox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M8.5002 12.8L14.2002 18.4C14.6002 18.8 15.2002 18.8 15.6002 18.4C16.0002 18 16.0002 17.4 15.6002 17L10.7002 12L15.6002 7C16.0002 6.6 16.0002 6 15.6002 5.6C15.4002 5.4 15.2002 5.3 14.9002 5.3C14.6002 5.3 14.4002 5.4 14.2002 5.6L8.5002 11.2C8.1002 11.7 8.1002 12.3 8.5002 12.8C8.5002 12.7 8.5002 12.7 8.5002 12.8Z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </div>
+      </div>
+    </button>
+    <button
+      x-on:click.prevent="activeSlide &lt; slideCount - 1 ? (activeSlide += 1, slideWidth += $refs['slide' + activeSlide].offsetWidth) : activeSlide = slideCount - 1"
+      class="hidden sm:block group z-50 absolute -right-7 top-1/2 transform -translate-y-1/2"
+    >
+      <div
+        class="h-16 w-16 flex items-center justify-center bg-white rounded-full group-hover:bg-purple-500 transition duration-200"
+      >
+        <div
+          class="text-rhino-500 group-hover:text-white transition duration-200"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewbox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M15.5397 11.29L9.87974 5.64C9.78677 5.54627 9.67617 5.47188 9.55431 5.42111C9.43246 5.37034 9.30175 5.3442 9.16974 5.3442C9.03773 5.3442 8.90702 5.37034 8.78516 5.42111C8.6633 5.47188 8.5527 5.54627 8.45974 5.64C8.27349 5.82736 8.16895 6.08081 8.16895 6.345C8.16895 6.60918 8.27349 6.86264 8.45974 7.05L13.4097 12.05L8.45974 17C8.27349 17.1874 8.16895 17.4408 8.16895 17.705C8.16895 17.9692 8.27349 18.2226 8.45974 18.41C8.55235 18.5045 8.6628 18.5797 8.78467 18.6312C8.90655 18.6826 9.03743 18.7094 9.16974 18.71C9.30204 18.7094 9.43293 18.6826 9.5548 18.6312C9.67668 18.5797 9.78712 18.5045 9.87974 18.41L15.5397 12.76C15.6412 12.6664 15.7223 12.5527 15.7777 12.4262C15.8331 12.2997 15.8617 12.1631 15.8617 12.025C15.8617 11.8869 15.8331 11.7503 15.7777 11.6238C15.7223 11.4973 15.6412 11.3836 15.5397 11.29Z"
+              fill="currentColor"
+            ></path>
+          </svg>
+        </div>
+      </div>
+    </button>
+    <div class="overflow-hidden">
+      <div
+        :style="'transform: translateX(-' + slideWidth + 'px)'"
+        class="flex transition-transform duration-500 ease-in-out -m-5"
+        style="transform: translateX(-2320px)"
+      >
+        <div x-ref="slide1" class="flex-shrink-0 w-full p-5">
+          <div class="rounded-xl pt-24 pb-20 relative h-full">
+            {% load static %}
+            <img
+              class="absolute right-0 top-0 w-full h-full object-cover rounded-xl"
+              src="{% static 'images/electro.png' %}"
+              alt=""
+            />
+            <div
+              class="max-w-sm sm:max-w-xl relative z-10 flex flex-col items-start px-8 sm:px-24"
+            >
+              <div
+                class="px-4 py-1 rounded-full bg-white uppercase text-rhino-700 text-xs font-bold tracking-widest font-heading mb-7"
+              >
+                Sale
+              </div>
+              <h1 class="text-white font-semibold text-4xl mb-4">
+                Take care of your performance every day.
+              </h1>
+              <p class="text-rhino-300 text-sm mb-6">
+                Build a well-presented brand that everyone will love.
+              </p>
+              <h2
+                class="text-white font-heading text-2xl lg:text-4xl font-semibold mb-6"
+              >
+                $235.95
+              </h2>
+              <a
+                class="py-3 px-4 bg-purple-500 rounded-sm text-center text-white text-sm font-medium hover:bg-purple-600 transition duration-200"
+                href="#"
+                >Go to Collection</a
+              >
+            </div>
+          </div>
+        </div>
+        <div x-ref="slide2" class="flex-shrink-0 w-full p-5">
+          <div class="rounded-xl pt-24 pb-20 relative h-full">
+            {% load static %}
+            <img
+              class="absolute right-0 top-0 w-full h-full object-cover rounded-xl"
+              src="{% static 'images/2150062920-removebg-preview-1.png' %}"
+              alt=""
+            />
+            <div
+              class="max-w-sm sm:max-w-xl relative z-10 flex flex-col items-start px-8 sm:px-24"
+            >
+              <div
+                class="px-4 py-1 rounded-full bg-white uppercase text-rhino-700 text-xs font-bold tracking-widest font-heading mb-7"
+              >
+                Sale
+              </div>
+              <h1 class="text-white font-semibold text-4xl mb-4">
+                Prioritize Your Wellness Regimen.
+              </h1>
+              <p class="text-rhino-300 text-sm mb-6">
+                Nurture Your Daily Performance for Optimal Living.
+              </p>
+              <h2
+                class="text-white font-heading text-2xl lg:text-4xl font-semibold mb-6"
+              >
+                $99.99
+              </h2>
+              <a
+                class="py-3 px-4 bg-purple-500 rounded-sm text-center text-white text-sm font-medium hover:bg-purple-600 transition duration-200"
+                href="#"
+                >Go to Collection</a
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          x-ref="slide3"
+          class="flex-shrink-0 w-full p-5 bg-gradient-to-br from-yellow-500 via-yellow-200 to-blue-500"
+        >
+          <div class="rounded-xl pt-24 pb-20 relative h-full">
+            {% load static %}
+            <img
+              class="absolute right-0 top-0 w-full h-full object-cover rounded-xl"
+              src="{% static '/meco-assets/images/header/woman-white-circle.png' %}"
+              alt=""
+            />
+            <div
+              class="max-w-sm sm:max-w-xl relative z-10 flex flex-col items-start px-8 sm:px-24"
+            >
+              <div
+                class="px-4 py-1 rounded-full bg-white uppercase text-rhino-700 text-xs font-bold tracking-widest font-heading mb-7"
+              >
+                Sale
+              </div>
+              <h1 class="text-white font-semibold text-4xl mb-4">
+                Craft Your Irresistible Image.
+              </h1>
+              <p class="text-rhino-300 text-sm mb-6">
+                Develop a Captivating Brand Identity for Universal
+                Appeal.
+              </p>
+              <h2
+                class="text-white font-heading text-2xl lg:text-4xl font-semibold mb-6"
+              >
+                $179.99
+              </h2>
+              <a
+                class="py-3 px-4 bg-purple-500 rounded-sm text-center text-white text-sm font-medium hover:bg-purple-600 transition duration-200"
+                href="#"
+                >Go to Collection</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hidden xl:block flex-shrink-0">
+    <div class="rounded-xl pt-24 pb-20 h-full relative">
+      {% load static %}
+      <img
+        class="absolute right-0 top-0 w-full h-full object-cover rounded-xl"
+        src="{% static 'coleos-assets/images/shoe-right-full.png' %}"
+        alt=""
+      />
+      <div
+        class="max-w-xl relative z-10 flex flex-col items-start px-8 lg:px-24"
+      >
+        <div
+          class="px-4 py-1 rounded-full bg-white uppercase text-rhino-700 text-xs font-bold tracking-widest font-heading mb-7"
+        >
+          Sale
+        </div>
+        <h1 class="text-white font-semibold text-4xl mb-4">
+          Take care of your performance every day.
+        </h1>
+        <p class="text-rhino-300 text-sm mb-6">
+          Build a well-presented brand that everyone will love.
+        </p>
+        <h2 class="text-white font-heading text-4xl font-semibold mb-6">
+          $235.95
+        </h2>
+        <a
+          class="py-3 px-4 bg-purple-500 rounded-sm text-center text-white text-sm font-medium hover:bg-purple-600 transition duration-200"
+          href="#"
+          >Go to Collection</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mx-auto px-4"></div>
+</section>
+
+<section
+x-data="{ nav: '' }"
+x-init="nav = $refs.nav1.textContent"
+class="py-12 md:py-24 bg-black"
+>
+<div class="container mx-auto px-4">
+  <div class="max-w-sm md:max-w-xl mx-auto lg:max-w-none">
+    <div class="flex flex-wrap -mx-4 mb-14 items-center">
+      <div class="w-full lg:w-1/2 xl:w-3/5 mb-8 lg:mb-0 px-4">
+        <h1 class="font-heading text-4xl text-white font-bold mb-0">
+          Explorer nos collections
+        </h1>
+      </div>
+      <div class="w-full lg:w-1/2 xl:w-auto ml-auto px-4">
+        <div class="flex -mb-2 flex-wrap md:justify-end">
+          <a
+            x-ref="nav1"
+            x-on:click.prevent="nav = $refs.nav1.textContent"
+            class="inline-block text-gray-200 hover:text-gray-300 font-bold mb-2 mr-8"
+            href="#"
+            >All</a
+          >
+          <a
+            x-ref="nav2"
+            x-on:click.prevent="nav = $refs.nav2.textContent"
+            class="inline-block font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-gray-400 to-gray-400 hover:from-yellow-400 hover:via-green-300 hover:to-blue-500 mb-2 mr-8"
+            href="#"
+            >Decor</a
+          >
+          <a
+            x-ref="nav3"
+            x-on:click.prevent="nav = $refs.nav3.textContent"
+            class="inline-block font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-gray-400 to-gray-400 hover:from-yellow-400 hover:via-green-300 hover:to-blue-500 mb-2 mr-8"
+            href="#"
+            >Dining</a
+          >
+          <a
+            x-ref="nav4"
+            x-on:click.prevent="nav = $refs.nav4.textContent"
+            class="inline-block font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-gray-400 to-gray-400 hover:from-yellow-400 hover:via-green-300 hover:to-blue-500 mb-2 mr-8"
+            href="#"
+            >Bedroom</a
+          >
+          <a
+            x-ref="nav5"
+            x-on:click.prevent="nav = $refs.nav5.textContent"
+            class="inline-block font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 via-gray-400 to-gray-400 hover:from-yellow-400 hover:via-green-300 hover:to-blue-500 mb-2"
+            href="#"
+            >Living Room</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-wrap -mb-8 -mx-4 xl:-mx-8">
+      <div
+        x-show="$refs.nav1.textContent == nav || $refs.nav2.textContent == nav"
+        class="w-full md:w-1/2 lg:w-1/4 px-4 xl:px-8 mb-8"
+      >
+        <a class="group block" href="#">
+          {% load static %}
+          <img
+            class="block mb-5 w-full object-cover"
+            src="{% static '/meco-assets/images/category/furnitures-products-9-4.png' %}"
+            alt=""
+          />
+          <span
+            class="inline-block mb-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >Lights &amp; Bulbs</span
+          >
+          <span class="block text-sm text-gray-400 font-medium"
+            >39 Items</span
+          >
+        </a>
+      </div>
+      <div
+        x-show="$refs.nav1.textContent == nav || $refs.nav3.textContent == nav"
+        class="w-full md:w-1/2 lg:w-1/4 px-4 xl:px-8 mb-8"
+      >
+        <a class="group block" href="#">
+          {% load static %}
+          <img
+            class="block mb-5 w-full object-cover"
+            src="{% static '/meco-assets/images/category/furnitures-products-9-3.png' %}"
+            alt=""
+          />
+          <span
+            class="inline-block mb-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >Chair &amp; Seatings</span
+          >
+          <span class="block text-sm text-gray-400 font-medium"
+            >17 Items</span
+          >
+        </a>
+      </div>
+      <div
+        x-show="$refs.nav1.textContent == nav || $refs.nav4.textContent == nav"
+        class="w-full md:w-1/2 lg:w-1/4 px-4 xl:px-8 mb-8"
+      >
+        <a class="group block" href="#">
+          {% load static %}
+          <img
+            class="block mb-5 w-full object-cover"
+            src="{% static '/meco-assets/images/category/furnitures-products-9-2.png' %}"
+            alt=""
+          />
+          <span
+            class="inline-block mb-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >Sofa</span
+          >
+          <span class="block text-sm text-gray-400 font-medium"
+            >15 Items</span
+          >
+        </a>
+      </div>
+      <div
+        x-show="$refs.nav1.textContent == nav || $refs.nav5.textContent == nav"
+        class="w-full md:w-1/2 lg:w-1/4 px-4 xl:px-8 mb-8"
+      >
+        <a class="group block" href="#">
+          {% load static %}
+          <img
+            class="block mb-5 w-full object-cover"
+            src="{% static '/meco-assets/images/category/furnitures-products-9-1.png' %}"
+            alt=""
+          />
+          <span
+            class="inline-block mb-2 font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >Wall Texture</span
+          >
+          <span class="block text-sm text-gray-400 font-medium"
+            >08 Items</span
+          >
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section
+class="py-12 md:py-24 bg-black"
+x-data="{ activeSlide: 1, slideCount: 3 }"
+>
+<div class="container mx-auto px-4 mb-16">
+  <div class="flex flex-wrap -mx-4">
+    <div class="w-full sm:w-1/2 xl:w-3/5 mb-6 sm:mb-0 px-4">
+      <h1 class="font-heading font-bold text-4xl text-white">
+        Nos meilleures ventes.
+      </h1>
+    </div>
+    <div class="w-full sm:w-1/2 xl:w-auto ml-auto px-4">
+      <div class="flex items-center sm:justify-end">
+        <a
+          x-on:click.prevent="activeSlide = activeSlide &gt; 1 ? activeSlide - 1 : slideCount"
+          class="inline-flex w-20 h-8 mr-4 items-center justify-center rounded-full border border-gray-800 hover:border-gray-700"
+          href="#"
+        >
+          <svg
+            width="10"
+            height="9"
+            viewbox="0 0 10 9"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.06245 8.2123L1.28774 8.2123M1.28774 8.2123L1.28774 2.4376M1.28774 8.2123L8.71236 0.787683"
+              stroke="#84878A"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>
+          </svg>
+        </a>
+        <a
+          x-on:click.prevent="activeSlide = activeSlide &lt; slideCount ? activeSlide + 1 : 1"
+          class="group relative inline-flex w-20 h-8 items-center justify-center rounded-full bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 overflow-hidden"
+          href="#"
+        >
+          <div
+            class="absolute top-0 left-0 w-20 h-16 bg-gradient-to-br from-yellow-500 via-green-300 to-blue-500 transform -translate-y-5 group-hover:-translate-y-1 transition duration-500"
+          ></div>
+          <span class="relative">
+            <svg
+              width="10"
+              height="9"
+              viewbox="0 0 10 9"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.93766 0.787683L8.71236 0.787683M8.71236 0.787683L8.71236 6.56239M8.71236 0.787683L1.28774 8.2123"
+                stroke="black"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="px-4 overflow-hidden">
+  <div
+    :style="'transform: translateX(-' + (activeSlide - 1) * 100.5 + '%)'"
+    class="transition-transform duration-500 ease-in-out"
+  >
+    <div class="flex flex-nowrap -mx-4 justify-center">
+      <div class="flex-shrink-0 hidden sm:block sm:w-2/5 lg:w-1/4 px-4">
+        <a class="group block relative" href="#">
+          <div
+            class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-75"
+          ></div>
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items1.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Desk and Office</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Work from home accessories
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div class="flex-shrink-0 hidden lg:block w-1/4 px-4">
+        <a class="group block relative" href="#">
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items3.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Self-Improvement</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Book that really helps
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div class="flex-shrink-0 w-full xs:w-1/2 sm:w-2/5 lg:w-1/4 px-4">
+        <a class="group block relative" href="#">
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items2.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Fitness</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Daily exercise essentials
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div
+        class="flex-shrink-0 hidden xs:block xs:w-1/2 sm:w-2/5 lg:w-1/4 px-4"
+      >
+        <a class="group block relative" href="#">
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items1.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Office Oasis</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Tools and décor for a serene workspace
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div class="flex-shrink-0 hidden sm:block sm:w-2/5 lg:w-1/4 px-4">
+        <a class="group block relative" href="#">
+          <div
+            class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-75"
+          ></div>
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items2.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Work-from-Anywhere Essentials</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Portable gadgets for remote productivity
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div class="flex-shrink-0 hidden lg:block w-1/4 px-4">
+        <a class="group block relative" href="#">
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items3.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Personal Growth Pathways</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Books that inspire transformation
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div class="flex-shrink-0 w-full xs:w-1/2 sm:w-2/5 lg:w-1/4 px-4">
+        <a class="group block relative" href="#">
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items2.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Mental Wellness Mentors</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Guides for a resilient and balanced mind
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div
+        class="flex-shrink-0 hidden xs:block xs:w-1/2 sm:w-2/5 lg:w-1/4 px-4"
+      >
+        <a class="group block relative" href="#">
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items1.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Fitness Finesse</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              High-performance gear for active living
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div class="flex-shrink-0 hidden sm:block sm:w-2/5 lg:w-1/4 px-4">
+        <a class="group block relative" href="#">
+          <div
+            class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-75"
+          ></div>
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items2.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Exercise Elevation</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Equipment to amplify your workout routine
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div class="flex-shrink-0 hidden lg:block w-1/4 px-4">
+        <a class="group block relative" href="#">
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items3.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Desk Dynamics</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Innovations for an efficient desk setup
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div class="flex-shrink-0 w-full xs:w-1/2 sm:w-2/5 lg:w-1/4 px-4">
+        <a class="group block relative" href="#">
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items2.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Remote Work Revolution</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Gadgets for seamless virtual collaboration
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div
+        class="flex-shrink-0 hidden xs:block xs:w-1/2 sm:w-2/5 lg:w-1/4 px-4"
+      >
+        <a class="group block relative" href="#">
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items1.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Growth Grimoire</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Books that empower personal development
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div class="flex-shrink-0 hidden sm:block sm:w-2/5 lg:w-1/4 px-4">
+        <a class="group block relative" href="#">
+          <div
+            class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-75"
+          ></div>
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items2.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Wellness Wisdom</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Resources for holistic health and vitality
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div class="flex-shrink-0 hidden lg:block w-1/4 px-4">
+        <a class="group block relative" href="#">
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items3.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Fitness Fuel</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Nutritional supplements for peak performance
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div class="flex-shrink-0 w-full xs:w-1/2 sm:w-2/5 lg:w-1/4 px-4">
+        <a class="group block relative" href="#">
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items2.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Movement Mastery</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Tools to enhance your physical activity
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div
+        class="flex-shrink-0 hidden xs:block xs:w-1/2 sm:w-2/5 lg:w-1/4 px-4"
+      >
+        <a class="group block relative" href="#">
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items1.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Workspace Wellness</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Ergonomic solutions for comfort and productivity
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div class="flex-shrink-0 hidden sm:block sm:w-2/5 lg:w-1/4 px-4">
+        <a class="group block relative" href="#">
+          <div
+            class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-75"
+          ></div>
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items2.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Remote Resilience</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Tools for staying focused and connected while working
+              remotely
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div class="flex-shrink-0 hidden lg:block w-1/4 px-4">
+        <a class="group block relative" href="#">
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items3.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Evolutionary Encounters</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Books that ignite self-discovery and growth
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div class="flex-shrink-0 w-full xs:w-1/2 sm:w-2/5 lg:w-1/4 px-4">
+        <a class="group block relative" href="#">
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items2.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Fitness Fusion</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Gear for diverse workout routines
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div
+        class="flex-shrink-0 hidden xs:block xs:w-1/2 sm:w-2/5 lg:w-1/4 px-4"
+      >
+        <a class="group block relative" href="#">
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items1.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Productivity Paradigm</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Tools for optimizing workflow and efficiency
+            </h5>
+          </div>
+        </a>
+      </div>
+      <div class="flex-shrink-0 hidden sm:block sm:w-2/5 lg:w-1/4 px-4">
+        <a class="group block relative" href="#">
+          <div
+            class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-75"
+          ></div>
+          {% load static %}
+          <img
+            class="block mb-6 w-full h-80 object-cover"
+            src="{% static '/meco-assets/images/category/category-2-items2.png' %}"
+            alt=""
+          />
+          <div>
+            <span class="block mb-2 text-sm text-gray-500 font-medium"
+              >Wellness Wonderland</span
+            >
+            <h5
+              class="inline-block text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 group-hover:via-yellow-200"
+            >
+              Products to support a balanced lifestyle and well-being
+            </h5>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="py-12 md:py-24 lg:py-32 bg-black">
+<div class="container mx-auto px-4">
+  <div
+    class="px-6 md:px-12 lg:px-20 py-12 bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500"
+  >
+    <div class="flex flex-wrap -mx-4 items-center">
+      <div class="w-full lg:w-1/2 xl:w-3/5 mb-8 lg:mb-0 px-4">
+        <div>
+          <h3 class="font-heading text-4xl sm:text-5xl font-bold mb-4">
+            Voire les recommandations personnalisées.
+          </h3>
+          <p class="max-w-xl">
+            meco est solution simple efficace alimenter par de l'intelligence artificielle pour simplifier 
+            votre activite e ligne, faites nous confiances des maintenant.
+          </p>
+        </div>
+      </div>
+      <div class="w-full lg:w-1/2 xl:w-2/5 px-4">
+        <div
+          class="flex flex-col lg:flex-row flex-wrap lg:items-center lg:justify-end"
+        >
+          <a
+            class="inline-block h-14 px-8 py-4 mb-3 lg:mb-0 lg:mr-4 text-center text-white hover:text-black font-bold bg-black hover:bg-white transition duration-200"
+            href="#"
+            >Identifiez-vous</a
+          ><a
+            class="inline-block h-14 px-8 py-4 text-center text-black hover:text-white font-bold hover:bg-black border border-black transition duration-200"
+            href="#"
+            >Commencez ici !</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+{% endblock  %}

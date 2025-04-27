@@ -1,0 +1,866 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="">
+  <section class="py-12 md:py-16 lg:py-32 bg-black">
+    <div class="container mx-auto px-4">
+      <div class="mb-4 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-max">
+            <thead>
+              <tr class="text-left">
+                <th class="py-5 pl-32 pr-4">
+                  <span
+                    class="inline-block text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500"
+                    >Product</span
+                  >
+                </th>
+                <th class="py-5 px-16">
+                  <span
+                    class="inline-block text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500"
+                    >Price</span
+                  >
+                </th>
+                <th class="py-5 px-16">
+                  <span
+                    class="inline-block text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500"
+                    >Quantity</span
+                  >
+                </th>
+                <th class="py-5 pl-16 pr-24">
+                  <span
+                    class="inline-block text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500"
+                    >Subtotal</span
+                  >
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-blueGray-900">
+              <tr
+                x-data="{ quantity: 1, item: true }"
+                :class="{ 'hidden': !item }"
+              >
+                <td class="border-b border-black">
+                  <div class="flex h-30 pl-14 pr-4 items-center">
+                    <button
+                      x-on:click="item = false"
+                      class="inline-block mr-14"
+                    >
+                      <svg
+                        width="11"
+                        height="11"
+                        viewbox="0 0 11 11"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.75 9.25L9.25 1.75M1.75 1.75L9.25 9.25"
+                          stroke="#A1A4A8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div class="flex h-30 items-center">
+                    {% load static %}
+                      <img
+                        class="block w-16 h-16 rounded"
+                        src="{% static 'meco-assets/images/cart/item-medium-table1.png' %}"
+                        alt=""
+                      />
+                      <span class="inline-block ml-6 font-bold text-white"
+                        >Body Scrub</span
+                      >
+                    </div>
+                  </div>
+                </td>
+                <td class="border-b border-black">
+                  <div class="flex h-30 px-16 items-center">
+                    <span class="inline-block text-sm font-medium text-gray-400"
+                      >$24.99</span
+                    >
+                  </div>
+                </td>
+                <td class="border-b border-black">
+                  <div class="flex h-30 px-16 items-center">
+                    <div
+                      class="inline-flex px-2 font-bold text-gray-400 border border-blueGray-800"
+                    >
+                      <button
+                        class="inline-block p-1"
+                        x-on:click="quantity &gt; 1 ? quantity-- : quantity"
+                      >
+                        <svg
+                          width="8"
+                          height="2"
+                          viewbox="0 0 8 2"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7 1H1"
+                            stroke="white"
+                            stroke-width="0.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </button>
+                      <input
+                        class="w-12 text-sm font-bold text-center bg-transparent outline-none"
+                        type="number"
+                        placeholder="1"
+                        x-model="quantity"
+                      />
+                      <button class="inline-block p-1" x-on:click="quantity++">
+                        <svg
+                          width="8"
+                          height="8"
+                          viewbox="0 0 8 8"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4 1V4M4 4V7M4 4H7M4 4L1 4"
+                            stroke="white"
+                            stroke-width="0.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </td>
+                <td class="border-b border-black">
+                  <div class="flex h-30 pl-16 pr-24 items-center justify-end">
+                    <span
+                      x-text="'$' + (24.99*quantity).toFixed(2)"
+                      class="text-sm font-medium text-white"
+                      >$24.99</span
+                    >
+                  </div>
+                </td>
+              </tr>
+              <tr
+                x-data="{ quantity: 1, item: true }"
+                :class="{ 'hidden': !item }"
+              >
+                <td class="border-b border-black">
+                  <div class="flex h-30 pl-14 pr-4 items-center">
+                    <button
+                      x-on:click="item = false"
+                      class="inline-block mr-14"
+                    >
+                      <svg
+                        width="11"
+                        height="11"
+                        viewbox="0 0 11 11"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.75 9.25L9.25 1.75M1.75 1.75L9.25 9.25"
+                          stroke="#A1A4A8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div class="flex h-30 items-center">
+                    {% load static %}
+                      <img
+                        class="block w-16 h-16 rounded"
+                        src="{% static 'meco-assets/images/cart/item-medium-table3.png' %}"
+                        alt=""
+                      />
+                      <span class="inline-block ml-6 font-bold text-white"
+                        >BHA Liquid Exfoliant</span
+                      >
+                    </div>
+                  </div>
+                </td>
+                <td class="border-b border-black">
+                  <div class="flex h-30 px-16 items-center">
+                    <span class="inline-block text-sm font-medium text-gray-400"
+                      >$24.99</span
+                    >
+                  </div>
+                </td>
+                <td class="border-b border-black">
+                  <div class="flex h-30 px-16 items-center">
+                    <div
+                      class="inline-flex px-2 font-bold text-gray-400 border border-blueGray-800"
+                    >
+                      <button
+                        class="inline-block p-1"
+                        x-on:click="quantity &gt; 1 ? quantity-- : quantity"
+                      >
+                        <svg
+                          width="8"
+                          height="2"
+                          viewbox="0 0 8 2"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7 1H1"
+                            stroke="white"
+                            stroke-width="0.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </button>
+                      <input
+                        class="w-12 text-sm font-bold text-center bg-transparent outline-none"
+                        type="number"
+                        placeholder="1"
+                        x-model="quantity"
+                      />
+                      <button class="inline-block p-1" x-on:click="quantity++">
+                        <svg
+                          width="8"
+                          height="8"
+                          viewbox="0 0 8 8"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4 1V4M4 4V7M4 4H7M4 4L1 4"
+                            stroke="white"
+                            stroke-width="0.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </td>
+                <td class="border-b border-black">
+                  <div class="flex h-30 pl-16 pr-24 items-center justify-end">
+                    <span
+                      x-text="'$' + (24.99*quantity).toFixed(2)"
+                      class="text-sm font-medium text-white"
+                      >$24.99</span
+                    >
+                  </div>
+                </td>
+              </tr>
+              <tr
+                x-data="{ quantity: 1, item: true }"
+                :class="{ 'hidden': !item }"
+              >
+                <td class="border-b border-black">
+                  <div class="flex h-30 pl-14 pr-4 items-center">
+                    <button
+                      x-on:click="item = false"
+                      class="inline-block mr-14"
+                    >
+                      <svg
+                        width="11"
+                        height="11"
+                        viewbox="0 0 11 11"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.75 9.25L9.25 1.75M1.75 1.75L9.25 9.25"
+                          stroke="#A1A4A8"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div class="flex h-30 items-center">
+                    {% load static %}
+                      <img
+                        class="block w-16 h-16 rounded"
+                        src="{% static 'meco-assets/images/cart/item-medium-table2.png' %}"
+                        alt=""
+                      />
+                      <span class="inline-block ml-6 font-bold text-white"
+                        >Long Scrub Brush</span
+                      >
+                    </div>
+                  </div>
+                </td>
+                <td class="border-b border-black">
+                  <div class="flex h-30 px-16 items-center">
+                    <span class="inline-block text-sm font-medium text-gray-400"
+                      >$24.99</span
+                    >
+                  </div>
+                </td>
+                <td class="border-b border-black">
+                  <div class="flex h-30 px-16 items-center">
+                    <div
+                      class="inline-flex px-2 font-bold text-gray-400 border border-blueGray-800"
+                    >
+                      <button
+                        class="inline-block p-1"
+                        x-on:click="quantity &gt; 1 ? quantity-- : quantity"
+                      >
+                        <svg
+                          width="8"
+                          height="2"
+                          viewbox="0 0 8 2"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7 1H1"
+                            stroke="white"
+                            stroke-width="0.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </button>
+                      <input
+                        class="w-12 text-sm font-bold text-center bg-transparent outline-none"
+                        type="number"
+                        placeholder="1"
+                        x-model="quantity"
+                      />
+                      <button class="inline-block p-1" x-on:click="quantity++">
+                        <svg
+                          width="8"
+                          height="8"
+                          viewbox="0 0 8 8"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4 1V4M4 4V7M4 4H7M4 4L1 4"
+                            stroke="white"
+                            stroke-width="0.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </td>
+                <td class="border-b border-black">
+                  <div class="flex h-30 pl-16 pr-24 items-center justify-end">
+                    <span
+                      x-text="'$' + (24.99*quantity).toFixed(2)"
+                      class="text-sm font-medium text-white"
+                      >$24.99</span
+                    >
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="flex flex-wrap -mx-4 items-center">
+        <div class="w-full md:w-1/2 px-4">
+          <div
+            class="flex max-w-sm h-12 items-center border border-blueGray-800"
+          >
+            <input
+              class="h-12 pl-4 py-4 text-sm font-medium bg-transparent text-gray-400 outline-none"
+              type="text"
+              placeholder="Coupon Code"
+            />
+            <div class="ml-auto flex-shrink-0">
+              <button
+                class="relative group inline-block h-12 w-full px-4 py-3 text-sm text-center font-bold text-black transition duration-200 overflow-hidden"
+              >
+                <div
+                  class="absolute top-0 left-0 w-full h-24 transform -translate-y-8 group-hover:-translate-y-1 transition duration-500 bg-gradient-to-br from-yellow-500 via-green-300 to-blue-500"
+                ></div>
+                <span class="relative">Apply Coupon</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-full md:w-1/2 px-4 text-right order-first md:order-last mb-5 md:mb-0"
+        >
+          <a
+            class="inline-block text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white hover:from-yellow-500 hover:via-green-300 hover:to-blue-500"
+            href="#"
+            >Update Cart</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="py-12 md:py-24 lg:pb-32 bg-black"
+    x-data="{ deliveryMethod: '' }"
+    x-init="deliveryMethod = $refs.standard.textContent"
+  >
+    <div class="container mx-auto px-4">
+      <div class="max-w-md lg:max-w-lg xl:max-w-none mx-auto">
+        <h3 class="font-heading text-4xl text-white font-bold mb-12">
+          Checkout
+        </h3>
+        <div class="flex flex-wrap -mx-4">
+          <div class="w-full xl:w-1/2 px-4 mb-8 xl:mb-0">
+            <div class="max-w-2xl">
+              <form action="">
+                <div class="mb-10 pb-12 border-b border-blueGray-800">
+                  <h6 class="font-bold text-white mb-6">Contact Information</h6>
+                  <div class="pb-12 mb-8 border-b border-blueGray-800">
+                    <label
+                      class="block mb-2 text-gray-400 text-sm font-medium"
+                      for=""
+                      >Email Address</label
+                    >
+                    <input
+                      class="h-10 w-full px-4 py-2 text-sm text-gray-400 border border-blueGray-800 bg-transparent outline-none"
+                      type="email"
+                    />
+                  </div>
+                  <h6 class="font-bold text-white mb-6">Contact Information</h6>
+                  <div class="flex flex-wrap -mx-2 mb-6">
+                    <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+                      <label
+                        class="block mb-2 text-gray-400 text-sm font-medium"
+                        for=""
+                        >First Name</label
+                      >
+                      <input
+                        class="h-10 w-full px-4 py-2 text-sm text-gray-400 border border-blueGray-800 bg-transparent outline-none"
+                        type="text"
+                      />
+                    </div>
+                    <div class="w-full md:w-1/2 px-2">
+                      <label
+                        class="block mb-2 text-gray-400 text-sm font-medium"
+                        for=""
+                        >Last Name</label
+                      >
+                      <input
+                        class="h-10 w-full px-4 py-2 text-sm text-gray-400 border border-blueGray-800 bg-transparent outline-none"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div class="mb-6">
+                    <label
+                      class="block mb-2 text-gray-400 text-sm font-medium"
+                      for=""
+                      >Company</label
+                    >
+                    <input
+                      class="h-10 w-full px-4 py-2 text-sm text-gray-400 border border-blueGray-800 bg-transparent outline-none"
+                      type="text"
+                    />
+                  </div>
+                  <div class="mb-6">
+                    <label
+                      class="block mb-2 text-gray-400 text-sm font-medium"
+                      for=""
+                      >Address</label
+                    >
+                    <input
+                      class="h-10 w-full px-4 py-2 text-sm text-gray-400 border border-blueGray-800 bg-transparent outline-none"
+                      type="text"
+                    />
+                  </div>
+                  <div class="mb-6">
+                    <label
+                      class="block mb-2 text-gray-400 text-sm font-medium"
+                      for=""
+                      >Apartment, suite, etc.</label
+                    >
+                    <input
+                      class="h-10 w-full px-4 py-2 text-sm text-gray-400 border border-blueGray-800 bg-transparent outline-none"
+                      type="text"
+                    />
+                  </div>
+                  <div class="flex flex-wrap -mx-2 mb-6">
+                    <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+                      <label
+                        class="block mb-2 text-gray-400 text-sm font-medium"
+                        for=""
+                        >City</label
+                      >
+                      <input
+                        class="h-10 w-full px-4 py-2 text-sm text-gray-400 border border-blueGray-800 bg-transparent outline-none"
+                        type="text"
+                      />
+                    </div>
+                    <div class="w-full md:w-1/2 px-2">
+                      <label
+                        class="block mb-2 text-gray-400 text-sm font-medium"
+                        for=""
+                        >Country</label
+                      >
+                      <select
+                        class="h-10 px-4 py-2 w-full text-sm text-gray-400 border border-blueGray-800 bg-transparent outline-none"
+                        name=""
+                        id=""
+                      >
+                        <option value="1">United States</option>
+                        <option value="1">United States</option>
+                        <option value="1">United States</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap -mx-2 mb-6">
+                    <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+                      <label
+                        class="block mb-2 text-gray-400 text-sm font-medium"
+                        for=""
+                        >State / Province</label
+                      >
+                      <input
+                        class="h-10 w-full px-4 py-2 text-sm text-gray-400 border border-blueGray-800 bg-transparent outline-none"
+                        type="text"
+                      />
+                    </div>
+                    <div class="w-full md:w-1/2 px-2">
+                      <label
+                        class="block mb-2 text-gray-400 text-sm font-medium"
+                        for=""
+                        >Postal Code</label
+                      >
+                      <input
+                        class="h-10 w-full px-4 py-2 text-sm text-gray-400 border border-blueGray-800 bg-transparent outline-none"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      class="block mb-2 text-gray-400 text-sm font-medium"
+                      for=""
+                      >Phone</label
+                    >
+                    <input
+                      class="h-10 w-full px-4 py-2 text-sm text-gray-400 border border-blueGray-800 bg-transparent outline-none"
+                      type="tel"
+                    />
+                  </div>
+                </div>
+                <div class="mb-8 pb-12 border-b border-blueGray-800">
+                  <h6 class="text-white font-bold mb-8">Delivery Method</h6>
+                  <div class="md:flex flex-wrap -mx-2">
+                    <div class="w-full md:w-1/2 px-2 mb-4 md:mb-0">
+                      <button
+                        x-on:click="deliveryMethod = $refs.standard.textContent"
+                        :class="{'relative group flex items-center p-px overflow-hidden': $refs.standard.textContent == deliveryMethod, 'block p-0 text-left border-2 border-gray-800 hover:border-blue-500': $refs.standard.textContent !== deliveryMethod }"
+                        class="relative group flex items-center w-full h-full p-0.5 overflow-hidden"
+                      >
+                        <div
+                          x-show="$refs.standard.textContent == deliveryMethod"
+                          class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 scale-150"
+                        ></div>
+                        <div
+                          class="relative text-left bg-black px-6 py-3 w-full h-full"
+                        >
+                          <span
+                            x-ref="standard"
+                            class="block mb-2 text-sm font-bold text-white"
+                            >Standard</span
+                          >
+                          <span class="block mb-8 text-sm text-gray-400"
+                            >4-10 business days</span
+                          >
+                          <span class="text-sm text-white font-bold"
+                            >$5.00</span
+                          >
+                        </div>
+                      </button>
+                    </div>
+                    <div class="w-full md:w-1/2 px-2">
+                      <button
+                        x-on:click="deliveryMethod = $refs.express.textContent"
+                        :class="{'relative group flex items-center p-0.5 overflow-hidden': $refs.express.textContent == deliveryMethod, 'block p-0 text-left border-2 border-gray-800 hover:border-blue-500': $refs.express.textContent !== deliveryMethod }"
+                        class="block p-0 text-left w-full h-full border-2 border-gray-800 hover:border-gray-700"
+                      >
+                        <div
+                          x-show="$refs.express.textContent == deliveryMethod"
+                          class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-yellow-500 via-green-300 to-blue-500 scale-150"
+                        ></div>
+                        <div
+                          class="relative text-left bg-black px-6 py-3 w-full h-full"
+                        >
+                          <span
+                            x-ref="express"
+                            class="block mb-2 text-sm font-bold text-white"
+                            >Express</span
+                          >
+                          <span class="block mb-8 text-sm text-gray-400"
+                            >2-5 business days</span
+                          >
+                          <span class="text-sm text-white font-bold"
+                            >$14.00</span
+                          >
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h6 class="text-white font-bold mb-8">Payment</h6>
+                  <div class="sm:flex mb-8 items-center">
+                    <div class="mb-4 sm:mb-0 sm:mr-8">
+                      <input
+                        type="radio"
+                        name="option"
+                        id="checkout-gradient-radio1-1"
+                        checked
+                      />
+                      <label
+                        class="ml-2 text-sm text-gray-400"
+                        for="checkout-gradient-radio1-1"
+                        >Credit card</label
+                      >
+                    </div>
+                    <div class="mb-4 sm:mb-0 sm:mr-8">
+                      <input
+                        type="radio"
+                        name="option"
+                        id="checkout-gradient-radio2-1"
+                      />
+                      <label
+                        class="ml-2 text-sm text-gray-400"
+                        for="checkout-gradient-radio2-1"
+                        >PayPal</label
+                      >
+                    </div>
+                    <div>
+                      <input
+                        type="radio"
+                        name="option"
+                        id="checkout-gradient-radio3-1"
+                      />
+                      <label
+                        class="ml-2 text-sm text-gray-400"
+                        for="checkout-gradient-radio3-1"
+                        >eTransfer</label
+                      >
+                    </div>
+                  </div>
+                  <div class="mb-6">
+                    <label
+                      class="block mb-2 text-gray-400 text-sm font-medium"
+                      for=""
+                      >Card Number</label
+                    >
+                    <input
+                      class="h-10 w-full px-4 py-2 text-sm text-gray-400 border border-blueGray-800 bg-transparent outline-none"
+                      type="tel"
+                    />
+                  </div>
+                  <div class="flex flex-wrap -mx-2 mb-6">
+                    <div class="w-full md:w-1/3 px-2 mb-6 md:mb-0">
+                      <label
+                        class="block mb-2 text-gray-400 text-sm font-medium"
+                        for=""
+                        >Name on Card</label
+                      >
+                      <input
+                        class="h-10 w-full px-4 py-2 text-sm text-gray-400 border border-blueGray-800 bg-transparent outline-none"
+                        type="text"
+                      />
+                    </div>
+                    <div class="w-full md:w-1/3 px-2 mb-6 md:mb-0">
+                      <label
+                        class="block mb-2 text-gray-400 text-sm font-medium"
+                        for=""
+                        >Expiration (MM/YY)</label
+                      >
+                      <input
+                        class="h-10 w-full px-4 py-2 text-sm text-gray-400 border border-blueGray-800 bg-transparent outline-none"
+                        type="text"
+                      />
+                    </div>
+                    <div class="w-full md:w-1/3 px-2">
+                      <label
+                        class="block mb-2 text-gray-400 text-sm font-medium"
+                        for=""
+                        >CVC</label
+                      >
+                      <input
+                        class="h-10 w-full px-4 py-2 text-sm text-gray-400 border border-blueGray-800 bg-transparent outline-none"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="w-full xl:w-1/2 px-4">
+            <div class="max-w-lg mx-auto xl:mr-0">
+              <h6 class="font-bold text-white mb-5">Order Details</h6>
+              <div class="bg-blueGray-900">
+                <div
+                  x-data="{ item: true }"
+                  :class="{ 'hidden': !item }"
+                  class="flex items-start p-8 border-b border-blueGray-800"
+                >
+                {% load static %}
+                <img
+                    class="block h-28 w-20"
+                    src="{% static 'meco-assets/images/checkout/item-checkout1.png' %}"
+                    alt=""
+                  />
+                  <div class="w-full pl-5">
+                    <div class="flex mb-4 items-start justify-between">
+                      <div class="mr-10">
+                        <a
+                          class="inline-block mb-1 text-sm font-bold text-white"
+                          href="#"
+                          >Basic Tee</a
+                        >
+                        <span class="block text-sm font-medium text-gray-400"
+                          >Sienna</span
+                        >
+                        <span class="block text-sm font-medium text-gray-400"
+                          >Large</span
+                        >
+                      </div>
+                      <button x-on:click="item = false" class="inline-block">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewbox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4 12L12 4M4 4L12 12"
+                            stroke="#A1A4A8"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="flex items-end justify-between">
+                      <span class="text-sm font-bold text-white">$32.00</span>
+                      <div
+                        class="inline-flex h-8 mb-4 pr-1 font-bold text-gray-400 border border-blueGray-800 rounded"
+                      >
+                        <select
+                          class="w-12 text-sm font-bold text-center bg-transparent outline-none"
+                          name=""
+                          id=""
+                        >
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  x-data="{ item: true }"
+                  :class="{ 'hidden': !item }"
+                  class="flex items-start p-8 border-b border-blueGray-800"
+                >
+                {% load static %}
+                <img
+                    class="block h-28 w-20"
+                    src="{% static 'meco-assets/images/checkout/item-checkout2.png' %}"
+                    alt=""
+                  />
+                  <div class="w-full pl-5">
+                    <div class="flex mb-4 items-start justify-between">
+                      <div class="mr-10">
+                        <a
+                          class="inline-block mb-1 text-sm font-bold text-white"
+                          href="#"
+                          >Basic Tee</a
+                        >
+                        <span class="block text-sm font-medium text-gray-400"
+                          >Sienna</span
+                        >
+                        <span class="block text-sm font-medium text-gray-400"
+                          >Large</span
+                        >
+                      </div>
+                      <button x-on:click="item = false" class="inline-block">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewbox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M4 12L12 4M4 4L12 12"
+                            stroke="#A1A4A8"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="flex items-end justify-between">
+                      <span class="text-sm font-bold text-white">$32.00</span>
+                      <div
+                        class="inline-flex h-8 mb-4 pr-1 font-bold text-gray-400 border border-blueGray-800 rounded"
+                      >
+                        <select
+                          class="w-12 text-sm font-bold text-center bg-transparent outline-none"
+                          name=""
+                          id=""
+                        >
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-8">
+                  <div class="flex mb-5 items-center justify-between">
+                    <span class="text-sm font-medium text-gray-400"
+                      >Subtotal</span
+                    >
+                    <span class="text-sm font-medium text-white">$64.00</span>
+                  </div>
+                  <div class="flex mb-5 items-center justify-between">
+                    <span class="text-sm font-medium text-gray-400"
+                      >Shipping</span
+                    >
+                    <span class="text-sm font-medium text-white">$5.00</span>
+                  </div>
+                  <div class="flex mb-5 items-center justify-between">
+                    <span class="text-sm font-medium text-gray-400">Taxes</span>
+                    <span class="text-sm font-medium text-white">$5.52</span>
+                  </div>
+                  <div class="flex mb-8 items-center justify-between">
+                    <span class="text-sm font-bold text-white">Total</span>
+                    <span class="text-sm font-bold text-white">$75.52</span>
+                  </div>
+                  <a
+                    class="relative group inline-block h-12 w-full px-4 py-3 text-center font-bold text-black transition duration-200 overflow-hidden"
+                    href="#"
+                  >
+                    <div
+                      class="absolute top-0 left-0 w-full h-24 transform -translate-y-8 group-hover:-translate-y-1 transition duration-500 bg-gradient-to-br from-yellow-500 via-green-300 to-blue-500"
+                    ></div>
+                    <span class="relative">Confirm Order</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
