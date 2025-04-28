@@ -62,11 +62,11 @@
                   </div>
                 </div>
                 <div>
-                 {% load static %}
+                 
                   <img
                     class="block h-full w-full max-w-4xl"
-                    src="{% static '/meco-assets/images/product-details/clothes-big-1.png' %}"
-                    alt=""
+                    src="{{ product.main_image.url }}"
+                    alt="{{ product.name }}"
                   />
                 </div>
               </div>
