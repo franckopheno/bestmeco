@@ -28,6 +28,7 @@ urlpatterns = [
      path("__reload__/", include("django_browser_reload.urls")),
     path('mecoadmin/', admin.site.urls),
      path('', include('apps.core.urls')),  # Ajout des URLs de l'application core
+     path('account', include('apps.accounts.urls')),  
 
 ]
 if settings.DEBUG:
